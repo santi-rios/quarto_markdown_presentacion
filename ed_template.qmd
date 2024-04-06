@@ -1,54 +1,41 @@
 ---
-title: "A University of Edinburgh Quarto Template"
-subtite: "A custom presentation for you to adapt as you see fit"
 format: 
   revealjs:
     theme: edtheme.scss
-editor: visual
-author:
-  - name: "Jane Bloggs"
-    id: jb
-    orcid: 0000-0000-0000-0001
-    email: jane.bloggs@ed.ac.uk
-    affiliation: 
-      - name: Roslin Institute, University of Edinburgh
-        city: Edinburgh, Scotland
-        url: www.ed.ac.uk
-  - name: "Marie McDonald"
-    id: mm
-    orcid: 0000-0000-0000-0002
-    email: 
-    affiliation: 
-      - name: R(D)SVS, University of Edinburgh
-        city: Edinburgh, Scotland
-        url: www.ed.ac.uk
-logo: /content/rdsvs.png
-footer: "Your social media handles - anything you want on each slide"
+    transition: slide # fade/slide/convex/concave/zoom/none
+    preview-links: true # navegar links dentro de la misma presentación (iframe)
+    progress: true # mostrar barra de progreso
+    scrollable: true # desplazar verticalmente diapositivas
+    # incremental: true # listas aparecen de uno en uno
+    # width: 1280
+    # height: 720
+    # chalkboard: 
+      # buttons: true
+logo: "https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png"
+footer: "[Ver código de la presentación](https://github.com/santi-rios/rosell_estadistica_markdown/)"
 bibliography: references.bib
+params:
+  species: Adelie # solo para ejemplo de diapo 
 ---
 
 ## Why use Quarto?
 
-Quarto enables you to weave together content and executable code into a finished presentation. 
-
+Quarto enables you to weave together content and executable code into a finished presentation.
 
 To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
 
 # You can have sections like this
 
 ## And important things: {.smaller}
-:::: {.columns}
-:::{.column width="50%"}
 
+::: columns
+::: {.column width="50%"}
 And citations are managed via pandoc per [the @quartoguide23].
 
-It's also good to reference [@knuth84] for no particular reason. 
-
+It's also good to reference [@knuth84] for no particular reason.
 :::
 
-
-:::{.column width="50%"}
-
+::: {.column width="50%"}
 ```{r}
 #| echo: false
 #| fig-cap: "A lovely chart"
@@ -56,10 +43,8 @@ It's also good to reference [@knuth84] for no particular reason.
 plot(mtcars$cyl, mtcars$mpg)
 
 ```
-
 :::
-
-::::
+:::
 
 ## And other stuff
 
@@ -75,7 +60,6 @@ plot(mtcars$cyl, mtcars$mpg)
 ::: footer
 A footer can be overriden when needed
 :::
-
 
 ## References
 
