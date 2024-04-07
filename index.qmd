@@ -1,0 +1,745 @@
+---
+format: 
+  revealjs:
+    theme: style.scss
+    transition: slide # fade/slide/convex/concave/zoom/none
+    preview-links: true # navegar links dentro de la misma presentación (iframe)
+    progress: true # mostrar barra de progreso
+    scrollable: true # desplazar verticalmente diapositivas
+    # incremental: true # listas aparecen de uno en uno
+    # width: 1280
+    # height: 720
+    # chalkboard: 
+      # buttons: true
+logo: "https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png"
+footer: "[Ver código de la presentación](https://github.com/santi-rios/rosell_estadistica_markdown/)"
+preload-iframes: true
+bibliography: references.bib
+params:
+  species: Adelie # solo para ejemplo de diapo 
+---
+
+#  {background-iframe="stars/dist/index.html" background-interactive="False"}
+
+::: {style="background-color: #ffffffbb; border-radius: 10px; padding: 5px;"}
+::: r-fit-text
+R Markdown y Quarto
+
+:::
+
+[Mariana Guerrero Osornio](mailto:mgueosor@hotmail.com)
+
+[Santiago Garcia Rios](mailto:santiago_gr@ciencias.unam.mx)
+
+:::
+
+<span style='font-size:1.2em; font-family:Arial; font-weight: bold; color: white;'>Estadística General en R</span>
+
+
+# Introducción {background-iframe="logo-fall/index.html"}
+
+## ¿Qué es RMarkdownon?
+
+<span style="font-size: 1.5em;">Es una herramienta que permite hacer documentos dinámicos y reproducibles con <span style="color: red;">R.</span> 
+Combina código, texto, datos y gráficas.</span>
+
+<div style="text-align: right;">
+  <img src="./content/logo1.png" style="width: 200px;">
+</div>
+
+
+## Se pueden realizar diferentes tareas: 
+::: {.incremental}
+-	Crear documentos en diferentes formatos: <span style="color: darkblue;">PDF, Word, HTML</span>
+-	Añadir y ejecutar código <span style="color: darkblue;">(bash, python, R, sql..)</span> 
+-	Hacer presentaciones
+-	Crear sitios webs
+-	Hacer análisis y reportes estadísticos
+-	Crear aplicaciones con <span style="color: darkblue;">shiny</span>
+:::
+
+## Crear un archivo R Markdown {background-iframe="./content/codevember-1/dist/index.html" background-interactive="False"}
+- Abrir R > Archivo > Documento nuevo > R Markdown
+<div style="display: grid; grid-template-columns: auto auto;">
+  <div style="align-self: flex-start;">
+    <img src="./content/im2.png" style="border: 2px solid black;" style="width: 500px;">
+  </div>
+  <div style="align-self: flex-start;">
+    <img src="./content/im3.png" style="border: 2px solid black;" style="width: 500px;">
+  </div>
+</div>
+
+## Crear un archivo R Markdown {background-iframe="./content/codevember-1/dist/index.html" background-interactive="False"}
+
+
+- Se obtendrá el siguiente archivo:
+
+<div style="position: center">
+  <img src="./content/im4.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div style="position: absolute; top: 270px; left: 550px; color: red; font-size: 26px;">
+   <i class="fas fa-arrow-right"></i> Encabezado
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div style="position: absolute; top: 330px; left: 550px; color: red; font-size: 26px;">
+   <i class="fas fa-arrow-right"></i> Bloque de código
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div style="position: absolute; top: 415px; left: 550px; color: red; font-size: 26px;">
+   <i class="fas fa-arrow-right"></i> Texto
+</div>
+
+## Edición del texto
+- <span style="font-size: 26.0pt;">Agregar encabezados: </span>
+
++--------------------+-----------------------------------+
+|      Sintaxis      |           Resultado               |
++====================+===================================+
+| ``` markdown       | ## Título {.heading-output}       |
+| #Título            |                                   |
+| ```                |                                   |
++--------------------+-----------------------------------+
+| ``` markdown       | ### Título 2 {.heading-output}    | 
+| ## Título 2        |                                   |
+| ```                |                                   |
++--------------------+-----------------------------------+
+| ``` markdown       | #### Título 3 {.heading-output}   |
+| ### Título 3       |                                   |
+| ```                |                                   |
++--------------------+-----------------------------------+
+```{=html}
+<style type="text/css">
+.heading-output {
+  border-bottom: none;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+</style>
+```
+
+
+## Edición del texto
+
+- <span style="font-size: 26.0pt;">Maneras de modificar el texto:</span>
+
++-----------------------------------------+-----------------------------------------+
+|             Sintaxis                    |              Resultado                  |
++=========================================+=========================================+
+| ``` markdown                            | *italica*, **bold**, ***ambas***        |
+| *italica*, **bold**, ***ambas***        |                                         |
+| ```                                     |                                         |
++-----------------------------------------+-----------------------------------------+
+| ``` markdown                            | superíndice^2^/subíndice~2~             |
+| superíndice^2^ / subíndice~2~           |                                         |
+| ```                                     |                                         |
++-----------------------------------------+-----------------------------------------+
+| ``` markdown                            | ~~tachado~~                             |
+| ~~tachado~~                             |                                         |
+| ```                                     |                                         |
++-----------------------------------------+-----------------------------------------+
+| ``` markdown                            | <span style="color:blue">Hola!</span>   |
+| <span style="color:blue">Hola!</span>   |                                         |
+| ```                                     |                                         |
++-----------------------------------------+-----------------------------------------+
+| ``` markdown                            | <span style="font-size: 12.0pt;">Hola!  |
+| <span style="font-size: 12.0pt;">Hola!  | </span>                                 |
+| </span>                                 |                                         |
+| ```                                     |                                         |
++-----------------------------------------+-----------------------------------------+
+## Generar listas
+
+- <span style="font-size: 22.0pt;">Se pueden combinar números, signos, letras y espacios</span>
+
+::: {.panel-tabset}
+
+### Sintaxis
+ ``` markdown                     
+ * lista1                         
+     + uno                        
+     + dos         
+     
+ 1. lista2                        
+     i) sublista                  
+          A.  sub-sublista        
+ ```                        
+
+### Resultado 1
+
+* lista1                          
+     + uno                         
+     + dos         
+     
+### Resultado 2
+
+1. lista2                         
+     i) sublista                   
+          A.  sub-sublista 
+          
+::: 
+
+## Generar tablas
+
+- <span style="font-size: 22.0pt;">Las columnas se separan con un tabulador y los encabezados con guíones</span>
+- <span style="font-size: 22.0pt;">Los dos puntos especifican la alineación de las palabras</span>
+
+::: {.panel-tabset}
+
+### Sintaxis
+
+``` markdown                                   
+| Izquierda | Derecha | Default | Centrado |
+|----------:|:--------|---------|:--------:|
+|   12      |  12     |    12   |    12    |
+|    1      |    1    |     1   |     1    |
+```
+
+### Resultado
+
+| Izquierda | Derecha | Default | Centrado |
+|----------:|:--------|---------|:--------:|
+|    12     | 12      | 12      |   12     |
+|     1     | 1       | 1       |   1      |
+:::
+
+## Agregar links o imágenes
++-----------------------------+---------------------------------------+
+|    Sintaxis                 |       Resultados                      |
++=============================+=======================================+
+| ``` markdown                | <https://quarto.org>                  |
+| <https://quarto.org>        |                                       |
+| ```                         |                                       |
++-----------------------------+---------------------------------------+
+| ``` markdown                | [Quarto](https://quarto.org)          |
+|[Quarto](https://quarto.org) |                                       |
+| ```                         |                                       |
++-----------------------------+---------------------------------------+
+| ``` markdown                | ![](./content/elephant.png){width=60%} | 
+| ![Caption](elephant.png)    |                                       |
+| ```                         |                                       |
++-----------------------------+---------------------------------------+
+
+## Bloques de código {#sec-bloques}
+
+<span style="font-size: 23.0pt;">Son bloques de código que se pueden ejecutar. Se utilizan diferentes argumentos para configurar el comportamiento:
+<div style="text-align: center;">
+  <img src="./content/im5.png">
+</div>
+::: {.incremental}
+-	<span style="color: darkblue;">include = FALSE,</span> código y los resultados no aparecen en el archivo final
+-	<span style="color: darkblue;">echo = FALSE,</span>  el código no aparece pero los resultados sí
+-	<span style="color: darkblue;">message = FALSE,</span>  evita que los mensajes generados en el código aparezcan
+-	<span style="color: darkblue;">warning = FALSE,</span>  evita que aparezcan las advertencias 
+-	<span style="color: darkblue;">fig.cap = “…”,</span>  añade títulos a los gráficos
+</span>
+:::
+
+## ¿Qué es Quarto ?
+
+<span style="font-size: 1.3em;"><span style="color: red;">Quarto</span> es un sistema que también permite crear documentos interactivos usando texto, código y visualizaciones.
+Toma lo mejor de RMarkdown y Jupyter Notebook, para integrarlo en una herramienta.</span>
+<div style="text-align: right;">
+  <img src="./content/im6.png" style="width: 180px;">
+</div>
+
+## Diferencias - Quarto vs RMarkdown
+
+::: {.incremental}
+- rmarkdown necesita el paquete `install.packages("rmarkdown")`, mientras que Quarto viene con RStudio
+- Quarto es *multilingüe*: <span style="color: darkblue;">R, Python, Javascript y Julia</span>
+-	Quarto es compatible con <span style="color: darkblue;">Knitr, Jupyter y Observable</span>
+- Quarto crea archivos tipo <span style="color: darkblue;">HTML, PDF, MS Word, ePub, etc.</span> sin librerías externas. 
+- Quarto incorpora más formatos de forma nativa ([websites](https://quarto.org/docs/websites/), [libros](https://quarto.org/docs/books/), [blogs](https://quarto.org/docs/websites/website-blog.html)) mientras que rmarkdown necesita paquetes externos
+- Algunos paquetes todavía solo se encuentran en rmarkdown como los Tutoriales interactivos con [learnr](https://pkgs.rstudio.com/learnr/); [Ver lista completa de paquetes y equivalencias entre los 2](https://quarto.org/docs/faq/rmarkdown.html#i-use-x-bookdown-blogdown-etc..-what-is-the-quarto-equivalent)
+:::
+
+
+
+
+## Diferencias - Formatos 
+:::: {.columns}
+
+::: {.column width="50%"}
+R Markdown (*output*)
+
+```yaml
+title: "Documento html"
+output:
+  html_document:
+    toc: true
+    number_sections: true
+    css: styles.css
+```
+:::
+:::{.column width="50%"}
+Quarto (*format*)
+
+
+```yaml
+title: "Documento html"
+format:
+  html:
+    toc: true
+    number-sections: true
+    css: styles.css
+```
+:::
+::::
+
+## Diferencias - Opciones de los Bloques de código 
+<span style="font-size: 23.0pt;"> - en Rmarkdown se escriben las opciones en el la primera línea. En quarto se pueden escribir como comentarios: </span>
+
+::: {.panel-tabset}
+
+### Rmarkdown: 
+
+```{{r, output: false}}
+library(ggplot2)
+
+ggplot(airquality, aes(Temp, Ozone)) + 
+  geom_point() + 
+  geom_smooth(method = "loess", se = FALSE)
+```
+
+### Quarto:
+
+```{r}
+#| echo: fenced
+#| output: false
+#| code-overflow: wrap
+#| code-line-numbers: "2|3|4|5"
+#| fig-cap: "Air Quality"
+
+library(ggplot2)
+ggplot(airquality, aes(Temp, Ozone)) + 
+  geom_point() + 
+  geom_smooth(method = "loess", se = FALSE)
+```
+:::
+
+
+
+# Análisis de datos {background-iframe="./content/multiple-images/index.html"}
+
+
+## Ejecutar código
+
+```{r}
+#| echo: true
+#| fig-width: 10
+#| fig-height: 4.5
+library(ggplot2)
+ggplot(mtcars, aes(hp, mpg, color = am)) +
+  geom_point() +
+  geom_smooth(formula = y ~ x, method = "loess")
+```
+
+::: footer
+Ver más sobre [Ejecución de código](https://quarto.org/docs/presentations/revealjs/#executable-code)
+:::
+
+
+## Figuras + Datos {.smaller .scrollable transition="slide"}
+
+::: panel-tabset
+### Plot
+
+```{r}
+library(ggplot2)
+ggplot(mtcars, aes(hp, mpg, color = am)) +
+  geom_point() +
+  geom_smooth(formula = y ~ x, method = "loess")
+```
+
+### Datos
+
+Se pueden pasar dataframes a funciones como `kable` o `flextable` para producir una table en markdown
+
+```{r echo=TRUE}
+knitr::kable(mtcars, caption = "Un título")
+```
+
+### Modificar figurtas
+
+Agregar argumentos a los Bloques de código (ver @sec-bloques)
+
+- `fig.align`: Alinear figura. Los valores pueden ser: “default”, “center”, “left”, o “right”? 
+- `fig.cap`: Pie de figura. Por ejemplo “Gráfica muy padre”
+- `fig.height` y `fig.width`
+
+
+:::
+
+::: footer
+Más información: [Tabsets](https://quarto.org/docs/presentations/revealjs/#tabsets)
+:::
+
+
+
+
+## Integrar ressultados del código en el reporte
+
+```{r}
+#| label: setup
+#| echo: true
+library(tidyverse)
+library(palmerpenguins)
+
+#filtrar datos
+penguin_filter <- penguins |>
+  filter(species == params$species, # param species: Adelie en YAML
+    !is.na(body_mass_g))
+# datos_originales - datos_filtrados
+filas_distintas <- nrow(penguins) - nrow(penguin_filter)
+```
+
+*inline code* \`r `
+
+```
+Tenemos datos de 'r nrow(penguins)' pinguinos. Solo
+'r filas_distintas' están catalogados como 'r params$species'. 
+```
+
+::: {.incremental}
+- Tenemos datos de `r nrow(penguins)` pinguinos. Solo
+`r filas_distintas` están catalogados como `r params$species`. 
+:::
+
+##
+
+![](./content/output-word.png)
+
+
+## Gráficos Interactivos {.smaller transition="slide"}
+
+
+```{r}
+#| echo: false
+#| fig-height: 5
+library(leaflet)
+leaflet() %>%
+  addTiles() %>%  
+  addMarkers(lng=-99.184484, lat=19.325318, popup="UNAM")
+```
+
+::: footer
+Más información: [widgets](https://quarto.org/docs/interactive/widgets/jupyter.html) y [htmlwidgets](https://quarto.org/docs/interactive/widgets/htmlwidgets.html)
+:::
+
+
+
+## Plotly
+
+```{r}
+#| echo: true
+#| code-line-numbers: "2,6,7,8"
+library(dplyr)
+library(plotly)
+
+my_df <- starwars |> filter(mass < 500) 
+
+plot_ly(my_df, x = my_df$height, y = my_df$mass, 
+        text = my_df$name, # Ver el nombre
+        mode = "markers", color = my_df$gender)
+```
+
+::: footer
+Más información: [Plotly](https://intro2r.library.duke.edu/widgets.html)
+:::
+
+## Gráficos 3-D
+
+```{r}
+#| echo: true
+#| code-line-numbers: "5"
+
+x <- seq_len(nrow(volcano)) + 100
+y <- seq_len(ncol(volcano)) + 500
+
+plot_ly() %>% 
+  add_surface(x = ~x, y = ~y, z = ~volcano)
+```
+
+::: footer
+Información topográfica del volcán Maunga Whau
+:::
+
+## Animaciones
+
+```{r}
+data(gapminder, package = "gapminder")
+
+base <- gapminder %>%
+  plot_ly(x = ~gdpPercap, y = ~lifeExp, size = ~pop, 
+          text = ~country, hoverinfo = "text") %>%
+  layout(xaxis = list(type = "log"))
+
+base %>%
+  add_markers(color = ~continent, frame = ~year, ids = ~country) %>%
+  animation_opts(1000, easing = "elastic", redraw = FALSE) %>%
+  animation_button(
+    x = 1, xanchor = "right", y = 0, yanchor = "bottom"
+  ) %>%
+  animation_slider(
+    currentvalue = list(prefix = "YEAR ", font = list(color="red"))
+  )
+```
+
+
+::: footer
+[Más información](https://plotly-r.com/animating-views)
+:::
+
+
+## Tablas dinámicas
+
+```{r}
+library(DT)
+datatable(iris) # creamos widget dinámico de nuestros datos
+
+```
+
+
+
+::: footer
+[Librería DT](https://rstudio.github.io/DT/)
+:::
+
+## Aplicaciones con Shiny
+La librería `Shiny` permite crear aplicaciones con R. Quarto puede *correr* estas aplicaciones en sus documentos o *incrustar* las aplicaciones por medio de *iFrames* ("cargar una página dentro de otra página"). 
+
+```{=html}
+ <iframe id="example1" src="https://gallery.shinyapps.io/dist_calc/" style="border: none; width: 100%; height: 720px" frameborder="0"></iframe>
+```
+
+
+::: footer
+[Más sobre Shiny](https://quarto.org/docs/interactive/shiny/).
+
+[Galería de Shiny apps](https://shiny.posit.co/r/gallery/).
+
+[Mastering Shiny](https://mastering-shiny.org/).
+:::
+
+
+# Formatos {background-iframe="./content/multiple-images/index.html"}
+
+## {auto-animate=true} 
+
+```yaml
+format:
+  html:
+    css: styles.css
+    html-math-method: katex
+```
+
+## {auto-animate=true} 
+
+Múltiples formatos en un documento
+
+```yaml
+format:
+  html:
+    css: styles.css
+    html-math-method: katex
+  pdf:
+    documentclass: report
+    margin-left: 30mm
+    margin-right: 30mm
+```
+
+![](./content/render-formats.png)
+
+::: footer
+[Todos los Formatos](https://quarto.org/docs/output-formats/all-formats.html)
+:::
+
+## html y pdf
+
+::: {.columns style="margin-top: -100px;"}
+::: {.column width="45%"}
+![HTML](./content/boston-history-html.jpeg){fig-alt="A screenshot of a HTML article about Boston Terriers, the document has an image in the right hard margin, a floating table of contents, and different sections split up by headers"}
+:::
+
+::: {.column .fragment width="50%"}
+![PDF](./content/boston-history-pdf.jpeg){fig-alt="A screenshot of a PDF article about Boston Terriers, the document has an image in the right hard margin, a floating table of contents, and different sections split up by headers"}
+:::
+:::
+
+## formatos para artículos
+
+::: columns
+::: {.column .fragment width="35%"}
+``` yaml
+----
+title: "A Short Demo Article"
+format:
+    jss-pdf: default
+    jss-html: default
+author:
+  - name: Achim Zeileis
+    affiliations:
+      - name: Universität Innsbruck
+        department: Department of Statistics
+        address: Universitätsstr. 15
+        city: Innsbruck
+        country: Austria
+        postal-code: 6020
+      - Journal of Statistical Software
+    orcid: 0000-0003-0918-3766
+    email: Achim.Zeileis@R-project.org
+    url: https://www.zeileis.org/
+abstract: |
+bibliography: bibliography.bib 
+---
+```
+Formatos para revistas de Elsevier, PLOS, Nature...
+
+:::
+
+::: {.column .fragment width="60%"}
+![](./content/jss.png){fig-alt="Screenshot of a rendered Quarto document to the Journal of Statistical Science format."}
+:::
+:::
+
+::: footer
+[Información](https://quarto.org/docs/journals/formats.html) y [formatos disponibles](https://quarto.org/docs/extensions/listing-journals.html)
+:::
+
+
+## Artículos y reportes
+
+```{=html}
+<iframe width="780" height="500" src="https://quarto-dev.github.io/quarto-gallery/page-layout/tufte.html" title="iframe libros"></iframe>
+```
+
+
+::: footer
+[Más ejemplos](https://quarto.org/docs/gallery/#articles-reports)
+:::
+
+## Presentaciones
+
+```{=html}
+<iframe width="780" height="500" src="https://apreshill.github.io/palmerpenguins-useR-2022/#/title-slide" title="iframe libros"></iframe>
+```
+
+
+::: footer
+[Más ejemplos](https://quarto.org/docs/gallery/#presentations)
+:::
+
+## Páginas web
+
+```{=html}
+<iframe width="780" height="500" src="https://nbdev.fast.ai/" title="iframe libros"></iframe>
+```
+
+
+::: footer
+[Más ejemplos](https://quarto.org/docs/gallery/#websites)
+:::
+
+## libros
+
+```{=html}
+<iframe width="780" height="500" src="https://r4ds.hadley.nz/" title="iframe libros"></iframe>
+```
+
+
+::: footer
+[Más ejemplos](https://quarto.org/docs/gallery/#books)
+:::
+
+# Otros {background-iframe="./content/multiple-images/index.html"}
+
+## Citas
+
+::: {.incremental}
+- Insertar con `Insert > Citation`.
+- Insertar con `DOI`, referencia de librería de `Zotero`, `Pubmed ID` u obtener referencias de un archivo `.bib` en el mismo directorio de nuestro documento. 
+- Se crea un archivo de tipo `.bib` donde se añaden las referencias. 
+- Al renderizar el ducmento, se ponen las referencias al final del documento. 
+:::
+
+![](./content/citas.png)
+
+::: footer
+[Más sobre citas](https://qmd4sci.njtierney.com/citations-and-styles)
+:::
+
+## Latex
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Modelos lineales
+
+```{r}
+#| echo: false
+
+# Librerías
+library(datos) # libreria con distintos datos
+library(equatiomatic) # libreria para extraer ecuación de modelos
+library(lme4) # modelado con efectos mixtos
+
+# Datos
+datos_diamantes <- datos::diamantes
+datos_diamantes$corte <- as.factor(datos_diamantes$corte)
+```
+
+
+```{r}
+#| echo: true
+
+# Modelado
+lm_diamantes <- lm(quilate ~ corte, data = datos_diamantes) 
+lmer_diamantes <- lmer(quilate ~ corte + (1 | precio), data = datos_diamantes)
+
+# Extraer ecuaciones
+lm_latex <- equatiomatic::extract_eq(lm_diamantes)
+lmer_latex <- equatiomatic::extract_eq(lmer_diamantes)
+```
+:::
+:::{.column width="50%"}
+
+Output
+
+
+```{r}
+lm_latex
+
+lmer_latex
+
+```
+:::
+
+::::
+
+
+## iframes
+
+```{=html}
+<iframe width="780" height="500" src="https://julietarosell1.wixsite.com/website-4" title="iframe example"></iframe>
+```
+
+
+
+## And important things: {.smaller}
+
+::: columns
+::: {.column width="50%"}
+And citations are managed via pandoc per [the @quartoguide23].
+
+It's also good to reference [@knuth84] for no particular reason.
+:::
+
+
+## References
+
+::: {#refs}
+:::
