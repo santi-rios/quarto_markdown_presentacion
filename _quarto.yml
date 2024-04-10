@@ -1,4 +1,7 @@
 project:
-  title: "Customisable Edinburgh Quarto Theme"
+  title: "Quarto rmarkdown presentacion"
   type: website
   output-dir: docs
+format:
+  html:
+    theme: cerulean
