@@ -23,6 +23,9 @@ format:
       - text: Código de la presentación
         icon: github
         href: https://github.com/santi-rios/quarto-iframes/blob/main/index.qmd
+      - text: Código del ejercicio
+        icon: github
+        href: https://github.com/santi-rios/quarto_markdown_presentacion/blob/main/index.qmd
 date: "today"
 execute:
   echo: true  
@@ -153,6 +156,20 @@ Este es un texto con **negrita** y con *cursiva*.
 
 ::: {.callout-warning}
 Este paso solo funciona con quarto.
+:::
+
+::: {.callout-note collapse="true"}
+```
+#| eval: false
+#| label: fig-airquality
+#| fig-cap: "Niveles de ozono y temperatura."
+
+library(ggplot2)
+
+ggplot(airquality, aes(Temp, Ozone)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
 :::
 
 En la @fig-airquality observamos el impacto de la temperatura sobre los niveles de ozono. 
